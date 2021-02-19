@@ -40,6 +40,7 @@ def create():
             conn.execute('INSERT INTO posts(title,content) VALUES (?,?)',(title,content))
             conn.commit()
             conn.close()
+            return redirect(url_for('index'))
     return render_template('create.html')
 
 @app.route('/<int:id>/edit', methods=('GET','POST'))
